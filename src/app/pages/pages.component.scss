@@ -1,0 +1,28 @@
+.row {
+    flex-wrap: nowrap
+}
+
+th {
+    width: 25%;
+}
+
+.add {
+    width: 15%;
+}
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.width {
+    margin-left: 2rem;
+    width: 50%;
+}
+
+.button {
+    margin-left: 0.3rem;
+}
+.active {
+  background: #a2a2a2;
+}

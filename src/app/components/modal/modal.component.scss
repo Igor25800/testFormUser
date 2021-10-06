@@ -1,0 +1,66 @@
+.form-control {
+  width: 30%;
+  display: inline !important;
+}
+
+label {
+  margin-right: 2rem;
+}
+
+.row {
+  flex-wrap: nowrap;
+}
+
+.col-sm-2 {
+  flex: 0 0 auto;
+  width: 5.6666666667%;
+}
+
+.col-md-6 {
+  flex: 0 0 auto;
+  width: 18%;
+}
+
+.input {
+  width: 60%;
+}
+
+.block__red {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background-color: red;
+}
+
+h5 {
+  margin-bottom: 1rem;
+}
+
+.center {
+  display: flex;
+  align-items: flex-end;
+}
+
+.margin {
+  margin-top: 1rem;
+  height: 3rem;
+}
+
+.right {
+  margin-right: 1rem;
+}
+
+.colum {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.activeInput {
+  border: 1px solid red;
+}
+
+
+
+
+

@@ -1,0 +1,72 @@
+<div class="container">
+  <form [formGroup]="formUser" #formDir="ngForm">
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Фамилия</label>
+      <div class="col-sm-10">
+        <input [class.activeInput]="validatorsForms('lastName')" formControlName='lastName' type="text"
+               class="form-control" id="inputEmail3" [readOnly]="isHide">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Имя</label>
+      <div class="col-sm-10">
+        <input [class.activeInput]="validatorsForms('name')" formControlName="name" type="text" class="form-control"
+               id="inputEmail5" [readOnly]="isHide">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Отчество</label>
+      <div class="col-sm-10">
+        <input [class.activeInput]="validatorsForms('patronymic')" formControlName="patronymic" type="text"
+               class="form-control" id="inputEmail4" [readOnly]="isHide">
+      </div>
+    </div>
+    <h2>Авмтомобили</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Номер</h5>
+      </div>
+      <div class="col-md-6">
+        <h5>Марка</h5>
+      </div>
+      <div class="col-md-6">
+        <h5>Модель</h5>
+      </div>
+      <div class="col-md-6">
+        <h5>Год</h5>
+      </div>
+    </div>
+    <div class="row" formArrayName="items" *ngFor="let controls of formUser.get('items')['controls']; let i = index;">
+      <div [formGroupName]="i" class="row">
+        <div class="col-md-6">
+          <input [class.activeInput]="validatorArray(controls, 'number')" formControlName="number" type="text"
+                 class="form-control input" [readOnly]="isHide">
+        </div>
+        <div class="col-md-6">
+          <input [class.activeInput]="validatorArray(controls, 'brand')" formControlName="brand" type="text"
+                 class="form-control input" [readOnly]="isHide">
+        </div>
+        <div class="col-md-6">
+          <input [class.activeInput]="validatorArray(controls, 'model')" formControlName="model" type="text"
+                 class="form-control input" [readOnly]="isHide">
+        </div>
+        <div class="col-md-6">
+          <input [class.activeInput]="validatorArray(controls, 'year')" formControlName="year" type="text"
+                 class="form-control input" [readOnly]="isHide">
+        </div>
+        <div class="col-md-6" *ngIf="isSave && !isHide">
+          <button *ngIf="formArrays.length > 1" (click)="remove(i)" class="block__red"></button>
+        </div>
+      </div>
+
+    </div>
+    <ng-container *ngIf="isSave">
+      <button (click)="createItem()" class="btn btn-primary margin" type="button" *ngIf="!isText">Добавить Автомобиль
+      </button>
+      <div class="margin">
+        <button [disabled]="formDir.invalid" (click)="toggle()" type="button" [class]="textBtn"
+                [textContent]="nameBtn"></button>
+      </div>
+    </ng-container>
+  </form>
+</div>

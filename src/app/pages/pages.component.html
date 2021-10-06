@@ -1,0 +1,41 @@
+<h2>Владелци Авмтомобилей</h2>
+<div class="row">
+  <button (click)="addModal()" class="add" type="button">Добавить</button>
+  <div class="width">
+    <button [disabled]="isblock" (click)="viewing()" class="button" type="button">Просмотр</button>
+    <button [disabled]="isblock" (click)="editUser()" class="button" type="button">Редектировать</button>
+    <button [disabled]="isblock" (click)="deliteUser()" class="button" type="button">Удалить</button>
+  </div>
+</div>
+
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Фамилия</th>
+    <th scope="col">Имя</th>
+    <th scope="col">Отчество</th>
+    <th scope="col">количество Авмтомобилей</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr [class.active]="i === id" *ngFor="let item of arrayUSers; let i=index" (click)="userActive(item, i)">
+    <th scope="row">{{item.lastName}}</th>
+    <td>{{item.name}}</td>
+    <td>{{item.patronymic}}</td>
+    <td>{{item.items.length}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<app-modal *ngIf="isModal"
+           [isHide]="isHide"
+           [formUser]="formUser"
+           [isSave]="isSave"
+           [isText]="isText"
+           [isEditUser]="isEditUser"
+           (saveUsers)="saveUSer()"
+           (addUsers)="addUser()"
+           (createItems)="addCars()"
+           (removeCar)="removeCar($event)"
+></app-modal>
+
